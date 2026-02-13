@@ -1,0 +1,40 @@
+﻿@model List<Lab2.Airplanes.Mvc.Models.AirplaneViewModel>
+
+@{
+    ViewData["Title"] = "Airplanes (All)";
+}
+
+<h2>Airplanes (All)</h2>
+
+<p>
+    <a asp-controller="Airplanes" asp-action="Create">Create New</a> |
+    <a asp-controller="AirplanesActive" asp-action="Index">View Active</a> |
+    <a asp-controller="AirplanesInactive" asp-action="Index">View Inactive</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Model</td>
+                <td>@(item.Status == 1 ? "Active" : "Inactive")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

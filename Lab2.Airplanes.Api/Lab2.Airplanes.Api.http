@@ -1,0 +1,6 @@
+@Lab2.Airplanes.Api_HostAddress = http://localhost:5007
+
+GET {{Lab2.Airplanes.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
